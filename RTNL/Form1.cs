@@ -15,5 +15,15 @@ namespace RTNL
         {
             InitializeComponent();
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Form1_MouseMove(object sender, MouseEventArgs e)
+        {
+            this.Text = Convert.ToString(e.X) + " . " + (e.Y);
+        }
     }
 }
