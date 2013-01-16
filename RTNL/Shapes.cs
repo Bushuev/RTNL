@@ -15,7 +15,7 @@ namespace RTNL
     }
     public class Cross : Shape
     {
-        int X, Y;
+       private int X, Y;
 
         public Cross(int _X, int _Y)
         {
@@ -51,7 +51,7 @@ namespace RTNL
     }
     public class Line : Shape
     {
-        Point C, F;
+       private Point C, F;
 
         public Line(Point _C, Point _F)
         {
