@@ -51,6 +51,13 @@ namespace RTNL
                     TempShape = new Circle(ShapeStart, e.Location);
                 }
             }
+            else if (rb_rectangle.Checked)
+            {
+                if (!IsShapeStart)
+                {
+                    TempShape = new Rectangle(ShapeStart, e.Location);
+                }
+            }
             this.Refresh();
         }
         private void MainScreen_Paint(object sender, PaintEventArgs e)
@@ -80,6 +87,15 @@ namespace RTNL
             if (rb_circle.Checked)
             {
                 if (IsShapeStart) ShapeStart = e.Location;
+                else AddShape(TempShape);
+                IsShapeStart = !IsShapeStart;
+            }
+            if (rb_rectangle.Checked)
+            {
+                if (IsShapeStart)
+                {
+                    ShapeStart = e.Location;
+                }
                 else AddShape(TempShape);
                 IsShapeStart = !IsShapeStart;
             }
@@ -131,6 +147,11 @@ namespace RTNL
                                 AddShape(new Circle(sr));
                                 break;
                             }
+                        case "Прямоугольнег":
+                            {
+                                AddShape(new Rectangle(sr));
+                                break;
+                            }
                     }
                 }
                 sr.Close();
@@ -165,5 +186,7 @@ namespace RTNL
       {
           MainScreen.ActiveForm.BackColor=MainScreen.DefaultBackColor;
       }
+
+     
     }
 }

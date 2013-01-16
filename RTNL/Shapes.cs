@@ -16,7 +16,7 @@ namespace RTNL
     public class Cross : Shape
     {
         int X, Y;
-       
+
         public Cross(int _X, int _Y)
         {
             X = _X;
@@ -52,7 +52,7 @@ namespace RTNL
     public class Line : Shape
     {
         Point C, F;
-      
+
         public Line(Point _C, Point _F)
         {
             this.C = _C;
@@ -93,7 +93,7 @@ namespace RTNL
     public class Circle : Shape
     {
         Point C, P;
-     
+
         int r;
         public Circle(Point _C, Point _P)
         {
@@ -101,6 +101,7 @@ namespace RTNL
             P = _P;
             r = Convert.ToInt32(Math.Sqrt(Math.Pow(C.X - P.X, 2) + Math.Pow(C.Y - P.Y, 2)));
         }
+
         public override void DrawWith(Graphics g, Pen p)
         {
             g.DrawEllipse(p, C.X - r, C.Y - r, 2 * r, 2 * r);
@@ -114,7 +115,7 @@ namespace RTNL
             sw.Write(' ');
             sw.WriteLine(Convert.ToString(r));
         }
-         public Circle(StreamReader _sr)
+        public Circle(StreamReader _sr)
         {
             string line = _sr.ReadLine();
             string[] str = line.Split(' ');
@@ -122,12 +123,62 @@ namespace RTNL
             C.Y = Convert.ToInt32(str[1]);
             r = Convert.ToInt32(str[2]);
         }
-         public override string ConfString
-         {
-             get
-             {
-                 return "Круг " + Convert.ToString(C) + " " + Convert.ToString(P);
-             }
-         }
+        public override string ConfString
+        {
+            get
+            {
+                return "Круг " + Convert.ToString(C) + " " + Convert.ToString(P);
+            }
+        }
+    }
+    public class Rectangle : Shape
+    {
+        Point a, b;
+        public Rectangle(Point _a, Point _b)
+        {
+            this.a = new Point(Math.Min(_a.X, _b.X), Math.Min(_a.Y, _b.Y));
+            this.b = new Point(Math.Max(_a.X, _b.X), Math.Max(_a.Y, _b.Y));
+        }
+        public Rectangle(StreamReader sr)
+        {
+            string line = sr.ReadLine();
+            string line1 = sr.ReadLine();
+            string[] foo = line.Split(' ');
+            string[] foo1 = line1.Split(' ');
+            a.X = Convert.ToInt32(foo[0]);
+            a.Y = Convert.ToInt32(foo[1]);
+            b.X = Convert.ToInt32(foo1[0]);
+            b.Y = Convert.ToInt32(foo1[1]);
+        }
+        public override void DrawWith(Graphics g, Pen p)
+        {
+            g.DrawRectangle(p, a.X, a.Y, width, height);
+        }
+        public override void SaveTo(StreamWriter sw)
+        {
+            sw.WriteLine("Прямоугольнег");
+            sw.WriteLine(Convert.ToString(a.X) + " " + Convert.ToString(a.Y));
+            sw.WriteLine(Convert.ToString(b.X) + " " + Convert.ToString(b.Y));
+        }
+        public override string ConfString
+        {
+            get { return ("Прямоугольнег(" + Convert.ToString(a.X) + ";" + Convert.ToString(a.Y) + ";ш=" + Convert.ToString(Math.Abs(width)) + ";в=" + Convert.ToString(Math.Abs(height)) + ")"); }
+        }
+        public float width
+        {
+            get
+            {
+                return (b.X - a.X);
+            }
+        }
+        public float height
+        {
+            get
+            {
+                return (b.Y - a.Y);
+            }
+        }
+
     }
 }
+

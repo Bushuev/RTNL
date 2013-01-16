@@ -58,6 +58,7 @@
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.Shapes_List = new System.Windows.Forms.ListBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.rb_rectangle = new System.Windows.Forms.RadioButton();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -278,7 +279,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(495, 453);
+            this.button1.Location = new System.Drawing.Point(397, 453);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(87, 29);
             this.button1.TabIndex = 7;
@@ -286,11 +287,23 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // rb_rectangle
+            // 
+            this.rb_rectangle.AutoSize = true;
+            this.rb_rectangle.Location = new System.Drawing.Point(500, 453);
+            this.rb_rectangle.Name = "rb_rectangle";
+            this.rb_rectangle.Size = new System.Drawing.Size(103, 17);
+            this.rb_rectangle.TabIndex = 8;
+            this.rb_rectangle.TabStop = true;
+            this.rb_rectangle.Text = "прямоугольник";
+            this.rb_rectangle.UseVisualStyleBackColor = true;
+            // 
             // MainScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(698, 537);
+            this.Controls.Add(this.rb_rectangle);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.Shapes_List);
             this.Controls.Add(this.rb_circle);
@@ -342,6 +355,7 @@
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.ListBox Shapes_List;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.RadioButton rb_rectangle;
     }
 }
 
