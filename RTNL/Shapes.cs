@@ -24,7 +24,7 @@ namespace RTNL
         }
         public override void SaveTo(StreamWriter sw)
         {
-            sw.WriteLine("Cross");
+            sw.WriteLine("Крест");
             sw.Write(Convert.ToString(X));
             sw.Write(' ');
             sw.WriteLine(Convert.ToString(Y));
@@ -45,7 +45,7 @@ namespace RTNL
         {
             get
             {
-                return "Cross " + Convert.ToString(X) + " : " + Convert.ToString(Y);
+                return "Крест " + Convert.ToString(X) + " ; " + Convert.ToString(Y);
             }
         }
     }
@@ -64,7 +64,7 @@ namespace RTNL
         }
         public override void SaveTo(StreamWriter sw)
         {
-            sw.WriteLine("Line");
+            sw.WriteLine("Линия");
             sw.Write(Convert.ToString(C.X));
             sw.Write(' ');
             sw.Write(Convert.ToString(C.Y));
@@ -86,7 +86,7 @@ namespace RTNL
         {
             get
             {
-                return "Line " + Convert.ToString(C) + " : " + Convert.ToString(F);
+                return "Линия " + Convert.ToString(C) + " ; " + Convert.ToString(F);
             }
         }
     }
@@ -107,7 +107,7 @@ namespace RTNL
         }
         public override void SaveTo(StreamWriter sw)
         {
-            sw.WriteLine("Circle");
+            sw.WriteLine("Круг");
             sw.Write(Convert.ToString(C.X));
             sw.Write(' ');
             sw.Write(Convert.ToString(C.Y));
@@ -126,7 +126,7 @@ namespace RTNL
          {
              get
              {
-                 return "Circle " + Convert.ToString(C) + " " + Convert.ToString(P);
+                 return "Круг " + Convert.ToString(C) + " " + Convert.ToString(P);
              }
          }
     }

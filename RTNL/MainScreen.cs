@@ -55,7 +55,7 @@ namespace RTNL
         }
         private void MainScreen_Paint(object sender, PaintEventArgs e)
         {
-            System.Drawing.Color colorr = colorDialog1.Color; 
+            System.Drawing.Color colorr = BackColor; 
             if (TempShape != null)
             {
                 TempShape.DrawWith(e.Graphics, p2);
@@ -116,17 +116,17 @@ namespace RTNL
                     string type = sr.ReadLine();
                     switch (type)
                     {
-                        case "Cross":
+                        case "Крест":
                             {
                                 AddShape(new Cross(sr));
                                 break;
                             }
-                        case "Line":
+                        case "Линия":
                             {
                                 AddShape(new Line(sr));
                                 break;
                             }
-                        case "Circle":
+                        case "Круг":
                             {
                                 AddShape(new Circle(sr));
                                 break;
@@ -159,12 +159,7 @@ namespace RTNL
             button1.Enabled = true;
         }
 
-      public void button2_Click(object sender, EventArgs e)
-        {
-            colorDialog1.ShowDialog();
-   MainScreen.ActiveForm.BackColor= colorDialog1.Color;
-     
-      }
+      
 
       private void button3_Click(object sender, EventArgs e)
       {
