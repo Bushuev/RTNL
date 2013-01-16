@@ -92,10 +92,10 @@ namespace RTNL
     }
     public class Circle : Shape
     {
-        Point C, P;
+       private Point C, P;
 
-      //  int r;
-        public int radius
+  
+        private int radius
         {
             get
             {
@@ -107,7 +107,6 @@ namespace RTNL
         {
             C = _C;
             P = _P;
-          //  r = Convert.ToInt32(Math.Sqrt(Math.Pow(C.X - P.X, 2) + Math.Pow(C.Y - P.Y, 2)));
         }
 
         public override void DrawWith(Graphics g, Pen p)
@@ -141,7 +140,7 @@ namespace RTNL
     }
     public class Rectangle : Shape
     {
-        Point a, b;
+       private Point a, b;
         public Rectangle(Point _a, Point _b)
         {
             this.a = new Point(Math.Min(_a.X, _b.X), Math.Min(_a.Y, _b.Y));
