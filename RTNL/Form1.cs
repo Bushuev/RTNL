@@ -37,6 +37,43 @@ namespace RTNL
         {
             Application.Exit();
         }
+
+
+        private void Form1_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (rb_line.Checked)
+            {
+                if (!IsShapeStart)
+                {
+                    TempShape = new Line(Shape_start, e.Location);
+                }
+            }
+            else if (rb_circle.Checked)
+            {
+                if (!IsShapeStart)
+                {
+                    TempShape = new Circle(Shape_start, e.Location);
+                }
+            }
+            this.Refresh();
+        }
+
+        private void Form1_Paint(object sender, PaintEventArgs e)
+        {
+            if (TempShape != null)
+            {
+                TempShape.Draw(e.Graphics, GreenPen);
+            }
+            foreach (Shape p in Shapes)
+            {
+                p.Draw(e.Graphics, RedPen);
+            }
+            foreach (int i in Shapes_list.SelectedIndices)
+            {
+                Shapes[i].Draw(e.Graphics, pSelect);
+            }
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
             while (Shapes_List.SelectedIndices.Count > 0)
