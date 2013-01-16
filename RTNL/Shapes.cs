@@ -94,12 +94,20 @@ namespace RTNL
     {
         Point C, P;
 
-        int r;
+      //  int r;
+        public int radius
+        {
+            get
+            {
+              return (Math.Sqrt(Math.Pow(C.X - P.X, 2) + Math.Pow(C.Y - P.Y, 2)));
+            }
+        }
+
         public Circle(Point _C, Point _P)
         {
             C = _C;
             P = _P;
-            r = Convert.ToInt32(Math.Sqrt(Math.Pow(C.X - P.X, 2) + Math.Pow(C.Y - P.Y, 2)));
+          //  r = Convert.ToInt32(Math.Sqrt(Math.Pow(C.X - P.X, 2) + Math.Pow(C.Y - P.Y, 2)));
         }
 
         public override void DrawWith(Graphics g, Pen p)
@@ -164,14 +172,14 @@ namespace RTNL
         {
             get { return ("Прямоугольнег(" + Convert.ToString(a.X) + ";" + Convert.ToString(a.Y) + ";ш=" + Convert.ToString(Math.Abs(width)) + ";в=" + Convert.ToString(Math.Abs(height)) + ")"); }
         }
-        public float width
+        private int width
         {
             get
             {
                 return (b.X - a.X);
             }
         }
-        public float height
+        private int height
         {
             get
             {
